@@ -8,9 +8,9 @@ import hljs from "highlight.js";
 import YuanUI from "../packages/index";
 import DemoBlock from "./components/DemoBlock.vue";
 
-import "~/theme-chalk/src/index.scss"; //组件样式
-import "./assets/styles/common.scss"; //公共样式
-import "./demo-styles/index.scss"; //文档 展示样式
+// import "~/theme-chalk/src/index.less"; //组件样式
+import "./assets/styles/common.less"; //公共样式
+import "./demo-styles/index.less"; //文档 展示样式
 
 Vue.component("DemoBlock", DemoBlock);
 

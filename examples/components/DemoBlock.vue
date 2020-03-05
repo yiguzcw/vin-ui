@@ -37,7 +37,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="less">
 .demo-block {
   border: solid 1px #ebebeb;
   border-radius: 3px;
@@ -122,6 +122,9 @@
     background-color: #fff;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     text-align: center;
     margin-top: -1px;
     color: #d3dce6;
@@ -138,13 +141,38 @@
       font-size: 16px;
       line-height: 44px;
       transition: 0.3s;
+      width: 14px;
+      height: 18px;
+      padding: 13px 0;
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 5px solid #d3dce6;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid transparent;
+      }
+
       &.hovering {
         transform: translateX(-40px);
+        border-top-color: #409eff;
+      }
+      &.icon-caret-top {
+        transform: rotate(180deg);
       }
     }
 
+    // .icon-caret-bottom:before {
+    //   width: 0;
+    //   height: 0;
+    //   border-top: 50px solid black;
+    //   border-right: 50px solid transparent;
+    //   border-bottom: 50px solid transparent;
+    //   border-left: 50px solid transparent;
+    // }
     > span {
-      position: absolute;
+      margin-left: 10px;
       transform: translateX(-30px);
       font-size: 14px;
       line-height: 44px;
@@ -154,7 +182,14 @@
 
     &:hover {
       color: #409eff;
+
       background-color: #f9fafc;
+      i::after {
+        border-top-color: #409eff;
+      }
+      .icon-caret-top {
+        transform: rotate(180deg);
+      }
     }
 
     & .text-slide-enter,
@@ -235,7 +270,7 @@ export default {
     },
 
     iconClass() {
-      return this.isExpanded ? "el-icon-caret-top" : "el-icon-caret-bottom";
+      return this.isExpanded ? "icon-caret-top" : "icon-caret-bottom";
     },
 
     controlText() {
